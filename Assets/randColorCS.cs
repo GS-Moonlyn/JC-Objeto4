@@ -21,6 +21,8 @@ public class randColorCS : MonoBehaviour
  
     void Start()
     {
+
+        
         
     }
 
@@ -38,6 +40,12 @@ public class randColorCS : MonoBehaviour
             if (GUI.Button(new Rect(0, 0, 100, 50), "Create"))
             {
                 createCube();
+
+                Debug.Log(SystemInfo.processorCount);
+                Debug.Log(SystemInfo.processorFrequency);
+                Debug.Log(SystemInfo.processorType);
+                Debug.Log(SystemInfo.graphicsMemorySize);
+                Debug.Log("Processor Count : " + SystemInfo.processorCount + "\bProcessor Frequency : " + SystemInfo.processorFrequency);
             }
 
         }
