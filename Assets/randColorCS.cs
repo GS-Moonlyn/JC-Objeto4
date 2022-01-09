@@ -17,19 +17,20 @@ public class randColorCS : MonoBehaviour
     GameObject[] gameObjects;
     Cube[] data;
     public GameObject modelPref;
+    private List<Cube> instantiated;
 
- 
+
     void Start()
     {
 
-        
-        
+
+
     }
 
-    
+
     void Update()
     {
-        
+
     }
 
     void OnGUI()
@@ -54,6 +55,9 @@ public class randColorCS : MonoBehaviour
         {
             if (GUI.Button(new Rect(110, 0, 100, 50), "Random CPU"))
             {
+
+                createCube();
+
                 for (int k = 0; k < interactions; k++) {
 
                     for (int i = 0; i < gameObjects.Length; i++)
@@ -68,6 +72,9 @@ public class randColorCS : MonoBehaviour
         {
             if (GUI.Button(new Rect(220, 1, 100, 50), "Random GPU"))
             {
+
+                createCube();
+
                 int totalSize = 4 * sizeof(float) + 3 * sizeof(float);
 
                 ComputeBuffer computeBuffer = new ComputeBuffer(data.Length, totalSize);
@@ -94,6 +101,7 @@ public class randColorCS : MonoBehaviour
     {
         data = new Cube[count * count];
         gameObjects = new GameObject[count * count];
+        instantiated = new List<Cube>();
 
         for (int i = 0; i < count; i++)
         {
@@ -116,6 +124,7 @@ public class randColorCS : MonoBehaviour
             }
         }
     }
+
 
     public void colorRandomizer(GameObject cube)
     {
